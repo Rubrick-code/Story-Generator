@@ -1,0 +1,21 @@
+import random
+
+# Define lists of story elements
+settings = ["in a mysterious forest", "in a bustling city", "on a distant planet", "in an ancient castle"]
+characters = ["a brave knight", "an adventurous explorer", "a cunning thief", "a wise wizard"]
+problems = ["must find a hidden treasure", "is searching for a lost friend", "needs to solve an ancient riddle", "has to escape from a maze"]
+solutions = ["with the help of a magical map", "by learning an important lesson", "using their wit and courage", "with the aid of an unexpected ally"]
+
+# Function to generate a random story
+def generate_story():
+    setting = random.choice(settings)
+    character = random.choice(characters)
+    problem = random.choice(problems)
+    solution = random.choice(solutions)
+
+    # Combine the elements into a story
+    story = f"Once upon a time, {character} was {setting}. They {problem} {solution}."
+    return story
+
+# Generate and print a random story
+print(generate_story())
