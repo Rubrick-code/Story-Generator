@@ -1,10 +1,13 @@
 import random
 
 # Define lists of story elements
-settings = ["in a mysterious forest", "in a bustling city", "on a distant planet", "in an ancient castle"]
-characters = ["a brave knight", "an adventurous explorer", "a cunning thief", "a wise wizard"]
-problems = ["must find a hidden treasure", "is searching for a lost friend", "needs to solve an ancient riddle", "has to escape from a maze"]
-solutions = ["with the help of a magical map", "by learning an important lesson", "using their wit and courage", "with the aid of an unexpected ally"]
+settings = ["in a dense forest", "in a thriving city", "on a distant planet", "in an ancient land", "on a treacherous sea"]
+characters = ["a great knight", "an adventurous explorer", "a cunning thief", "a wise wizard", "an unwavering privateer"]
+problems = ["must find a hidden treasure", "is searching for a lost friend", "needs to solve an ancient riddle", "has to escape from a maze", "must slay an evil dragon"]
+solutions = ["with the help of a magical map", "by learning an important lesson", "using their wit and courage", "with the aid of an unexpected ally", "through obtaining a new power"]
+events = ["found a hidden treasure but battling a world-ending monster", "found the lost friend who is enslaved by an evil sovereign", "solved the ancient riddle to accidentally summon an evil deity", "escaped the maze to find the world being invaded by demonic beings", "slain an evil dragon to realize a malevolent sorceress was behind it"]
+how = ["find the divine weapons", "obtain the hidden knowledge", "summon powerful allies from the multiverse", "become powerful through arcane sources", "unlock conceptual powers within yourself"]
+outcomes = ["the world is saved and you became a god to continue protecting the world", "the world is saved and you became the world's ruler", "the world is saved but you retired to start a family and live a normal life", "the world is saved but the victory was pyrrhic as almost everyone perished. There is still a chance of revival", "the final villains were destroyed along with the world. You and survivors have to flee into a different universe"]
 
 # Function to generate a random story
 def generate_story():
@@ -12,9 +15,12 @@ def generate_story():
     character = random.choice(characters)
     problem = random.choice(problems)
     solution = random.choice(solutions)
+    events = random.choice(events)
+    how = random.choice(how)
+    outcomes = random.choice(outcomes)
 
     # Combine the elements into a story
-    story = f"Once upon a time, {character} was {setting}. They {problem} {solution}."
+    story = f"Once upon a time, {character} was {setting}. They {problem} {solution}. However, they {events}, so they must {how}. In the end, {outcomes}."
     return story
 
 # Generate and print a random story
