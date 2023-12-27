@@ -5,22 +5,24 @@ settings = ["in a dense forest", "in a thriving city", "on a distant planet", "i
 characters = ["a great knight", "an adventurous explorer", "a cunning thief", "a wise wizard", "an unwavering privateer"]
 problems = ["must find a hidden treasure", "is searching for a lost friend", "needs to solve an ancient riddle", "has to escape from a maze", "must slay an evil dragon"]
 solutions = ["with the help of a magical map", "by learning an important lesson", "using their wit and courage", "with the aid of an unexpected ally", "through obtaining a new power"]
-events = ["found a hidden treasure but battling a world-ending monster", "found the lost friend who is enslaved by an evil sovereign", "solved the ancient riddle to accidentally summon an evil deity", "escaped the maze to find the world being invaded by demonic beings", "slain an evil dragon to realize a malevolent sorceress was behind it"]
-how = ["find the divine weapons", "obtain the hidden knowledge", "summon powerful allies from the multiverse", "become powerful through arcane sources", "unlock conceptual powers within yourself"]
+eventz = ["found a hidden treasure but battling a world-ending monster", "found the lost friend who is enslaved by an evil sovereign", "solved the ancient riddle to accidentally summon an evil deity", "escaped the maze to find the world being invaded by demonic beings", "slain an evil dragon to realize a malevolent sorceress was behind it"]
+how = ["find the divine weapons", "obtain the hidden knowledge", "summon powerful allies from the multiverse", "become powerful through arcane sources", "unlock conceptual powers within"]
 outcomes = ["the world is saved and you became a god to continue protecting the world", "the world is saved and you became the world's ruler", "the world is saved but you retired to start a family and live a normal life", "the world is saved but the victory was pyrrhic as almost everyone perished. There is still a chance of revival", "the final villains were destroyed along with the world. You and survivors have to flee into a different universe"]
+epilogue = ["the world became an utopia for all but cosmic entities still threaten the fabric of existence", "The world entered a prosperous era, and the inheritors of your will continue to carry your legacy of heroes", "the world is at peace, and your many children will prosper and forget all your heroic deeds. Still, a dark evil lingers.", "the world has recovered and learned many new advancements. Sadly, people used new powers and knowledge for wars.", "The survivors rebuilt the world under your guidance. You birthed a new generation who will strive to become better than your heroic deeds."]
 
 # Function to generate a random story
 def generate_story():
-    setting = random.choice(settings)
-    character = random.choice(characters)
-    problem = random.choice(problems)
-    solution = random.choice(solutions)
-    events = random.choice(events)
-    how = random.choice(how)
-    outcomes = random.choice(outcomes)
+    setting_choice = random.choice(settings)
+    character_choice = random.choice(characters)
+    problem_choice = random.choice(problems)
+    solution_choice = random.choice(solutions)
+    eventz_choice = random.choice(eventz)
+    how_choice = random.choice(how)
+    outcome_choice = random.choice(outcomes)
+    epilogue_choice = random.choice(epilogue)
 
     # Combine the elements into a story
-    story = f"Once upon a time, {character} was {setting}. They {problem} {solution}. However, they {events}, so they must {how}. In the end, {outcomes}."
+    story = f"Once upon a time, {character_choice} was {setting_choice} to be destined as a legend. The hero {problem_choice} {solution_choice}. However, the hero {eventz_choice}, so the hero must {how_choice}. In the end, {outcome_choice}. After a long time, {epilogue_choice}"
     return story
 
 # Generate and print a random story
