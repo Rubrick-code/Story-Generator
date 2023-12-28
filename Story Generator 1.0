@@ -1,29 +1,80 @@
 import random
 
-# Define lists of story elements
-settings = ["in a dense forest", "in a thriving city", "on a distant planet", "in an ancient land", "on a treacherous sea"]
-characters = ["a great knight", "an adventurous explorer", "a cunning thief", "a wise wizard", "an unwavering privateer"]
-problems = ["must find a hidden treasure", "is searching for a lost friend", "needs to solve an ancient riddle", "has to escape from a maze", "must slay an evil dragon"]
-solutions = ["with the help of a magical map", "by learning an important lesson", "using their wit and courage", "with the aid of an unexpected ally", "through obtaining a new power"]
-eventz = ["found a hidden treasure but battling a world-ending monster", "found the lost friend who is enslaved by an evil sovereign", "solved the ancient riddle to accidentally summon an evil deity", "escaped the maze to find the world being invaded by demonic beings", "slain an evil dragon to realize a malevolent sorceress was behind it"]
-how = ["find the divine weapons", "obtain the hidden knowledge", "summon powerful allies from the multiverse", "become powerful through arcane sources", "unlock conceptual powers within"]
-outcomes = ["the world is saved and you became a god to continue protecting the world", "the world is saved and you became the world's ruler", "the world is saved but you retired to start a family and live a normal life", "the world is saved but the victory was pyrrhic as almost everyone perished. There is still a chance of revival", "the final villains were destroyed along with the world. You and survivors have to flee into a different universe"]
-epilogue = ["the world became an utopia for all but cosmic entities still threaten the fabric of existence", "The world entered a prosperous era, and the inheritors of your will continue to carry your legacy of heroes", "the world is at peace, and your many children will prosper and forget all your heroic deeds. Still, a dark evil lingers.", "the world has recovered and learned many new advancements. Sadly, people used new powers and knowledge for wars.", "The survivors rebuilt the world under your guidance. You birthed a new generation who will strive to become better than your heroic deeds."]
+class StoryGenerator:
+    def __init__(self):
+        self.settings = ["in a dense forest", "in a thriving city", "on a distant planet", "in an ancient land",
+                         "on a treacherous sea", "in a mysterious desert", "atop a snowy mountain", "in a hidden valley",
+                         "inside a magical castle", "on a pirate ship"]
+        self.characters = ["a great knight", "an adventurous explorer", "a cunning thief", "a wise wizard",
+                           "an unwavering privateer", "a skilled archer", "a fearless warrior", "a clever alchemist",
+                           "a noble prince", "a daring pirate"]
+        self.character_traits = ["brave", "intelligent", "mysterious", "strong", "charismatic", "wise", "agile",
+                                 "cunning", "kind", "resourceful"]
+        self.problems = ["must find a hidden treasure", "is searching for a lost friend", "needs to solve an ancient riddle",
+                         "has to escape from a maze", "must slay an evil dragon", "is challenged to win a tournament",
+                         "must stop a war", "is tasked with saving a kingdom", "needs to uncover a conspiracy",
+                         "has to break a curse"]
+        self.solutions = ["with the help of a magical map", "by learning an important lesson", "using their wit and courage",
+                          "with the aid of an unexpected ally", "through obtaining a new power", "by mastering a forgotten art",
+                          "with a legendary weapon", "through a sacrifice", "by uniting rival factions",
+                          "by deciphering an ancient prophecy"]
+        self.plot_twists = ["but then discovers a hidden world", "but is betrayed by a trusted friend",
+                            "and uncovers a secret about their past", "but then a greater threat emerges",
+                            "and finds love along the way", "but must confront their own fears",
+                            "and is faced with a moral dilemma", "but the goal is not what it seems",
+                            "and learns the true cost of power", "and must protect a powerful artifact"]
+        self.side_quests = ["rescue a village from bandits", "find a rare ingredient for a potion",
+                            "deliver a mysterious message", "solve a series of riddles", "compete in a local festival",
+                            "defend against a monster attack", "negotiate peace between feuding parties",
+                            "retrieve a stolen item", "explore an ancient ruin", "help a stranger in need"]
+        self.outcomes = ["the world is saved and the hero is celebrated", "the quest fails, but the hero learns a valuable lesson",
+                         "the hero makes a noble sacrifice for the greater good", "the hero gains immense power but at a cost",
+                         "the hero discovers a new purpose and continues their journey",
+                         "peace is restored, but the hero remains vigilant", "the hero settles down to a quiet life",
+                         "the hero becomes a legend, inspiring others", "the world changes forever due to the hero's actions",
+                         "the hero's deeds are forgotten, but their impact endures"]
+        self.epilogues = ["The world enters a new era of prosperity", "The hero's legacy is passed on to a new generation",
+                          "A new threat looms on the horizon", "The hero's friends and allies remember their adventures fondly",
+                          "The hero's story becomes a tale told throughout the ages", "New discoveries and explorations await",
+                          "The hero's home is forever changed", "Peace reigns, but challenges remain",
+                          "The hero's journey becomes a myth", "The hero's influence shapes the world in unseen ways"]
 
-# Function to generate a random story
-def generate_story():
-    setting_choice = random.choice(settings)
-    character_choice = random.choice(characters)
-    problem_choice = random.choice(problems)
-    solution_choice = random.choice(solutions)
-    eventz_choice = random.choice(eventz)
-    how_choice = random.choice(how)
-    outcome_choice = random.choice(outcomes)
-    epilogue_choice = random.choice(epilogue)
+    def choose_element(self, element_list, prompt):
+        print(prompt)
+        for i, element in enumerate(element_list, start=1):
+            print(f"{i}. {element}")
+        choice = input("Enter your choice (number): ")
+        return element_list[int(choice) - 1]
 
-    # Combine the elements into a story
-    story = f"Once upon a time, {character_choice} was {setting_choice} to be destined as a legend. The hero {problem_choice} {solution_choice}. However, the hero {eventz_choice}, so the hero must {how_choice}. In the end, {outcome_choice}. After a long time, {epilogue_choice}"
-    return story
+    def generate_random_element(self, element_list):
+        return random.choice(element_list)
 
-# Generate and print a random story
-print(generate_story())
+    def generate_story(self):
+        # Player makes choices or selects random
+        setting = self.choose_or_random(self.settings, "Choose a setting or type 'random': ")
+        character = self.choose_or_random(self.characters, "Choose a character or type 'random': ")
+        trait = self.choose_or_random(self.character_traits, "Choose a character trait or type 'random': ")
+        problem = self.choose_or_random(self.problems, "Choose a problem or type 'random': ")
+        solution = self.choose_or_random(self.solutions, "Choose a solution or type 'random': ")
+        plot_twist = self.choose_or_random(self.plot_twists, "Choose a plot twist or type 'random': ")
+        side_quest = self.choose_or_random(self.side_quests, "Choose a side quest or type 'random': ")
+        outcome = self.choose_or_random(self.outcomes, "Choose an outcome or type 'random': ")
+        epilogue = self.choose_or_random(self.epilogues, "Choose an epilogue or type 'random': ")
+
+        # Assemble the story
+        story = f"Once upon a time, a {trait} {character} was {setting}. The hero's journey began when they {problem}. "\
+                f"Along the way, the hero {side_quest}. In their quest, they {solution}. Unexpectedly, they {plot_twist}. "\
+                f"In the end, {outcome}. {epilogue}."
+
+        return story
+
+    def choose_or_random(self, element_list, prompt):
+        choice = input(prompt)
+        if choice.lower() == 'random':
+            return self.generate_random_element(element_list)
+        else:
+            return self.choose_element(element_list, f"Choose an option for {prompt}")
+
+# Example of using the StoryGenerator
+story_generator = StoryGenerator()
+print(story_generator.generate_story())
